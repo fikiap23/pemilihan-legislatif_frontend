@@ -4,10 +4,11 @@ import { Outlet, Navigate, useRoutes } from 'react-router-dom';
 import DashboardLayout from 'src/layouts/dashboard';
 
 export const IndexPage = lazy(() => import('src/pages/app'));
-export const BlogPage = lazy(() => import('src/pages/blog'));
+export const KecamatanPage = lazy(() => import('src/pages/kecamatan'));
+export const KelurahanPage = lazy(() => import('src/pages/kelurahan'));
 export const UserPage = lazy(() => import('src/pages/user'));
 export const LoginPage = lazy(() => import('src/pages/login'));
-export const ProductsPage = lazy(() => import('src/pages/products'));
+export const PengisianSuaraPage = lazy(() => import('src/pages/pengisian_suara'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
 
 // ----------------------------------------------------------------------
@@ -25,8 +26,9 @@ export default function Router() {
       children: [
         { element: <IndexPage />, index: true },
         { path: 'user', element: <UserPage /> },
-        { path: 'products', element: <ProductsPage /> },
-        { path: 'blog', element: <BlogPage /> },
+        { path: 'pengisian-suara', element: <PengisianSuaraPage /> },
+        { path: 'kecamatan', element: <KecamatanPage /> },
+        { path: 'kelurahan', element: <KelurahanPage /> },
       ],
     },
     {

@@ -8,7 +8,7 @@ export default function UserPage() {
   return (
     <>
       <Helmet>
-        <title> User | Minimal UI </title>
+        <title> User | Rekapitulasi Legislatif UI </title>
       </Helmet>
 
       <UserView />

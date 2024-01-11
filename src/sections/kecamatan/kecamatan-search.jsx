@@ -8,11 +8,11 @@ import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
 
-PostSearch.propTypes = {
-  posts: PropTypes.array.isRequired,
+KecamatanSearch.propTypes = {
+  kecamatans: PropTypes.array.isRequired,
 };
 
-export default function PostSearch({ posts }) {
+export default function KecamatanSearch({ kecamatans }) {
   return (
     <Autocomplete
       sx={{ width: 280 }}
@@ -28,13 +28,13 @@ export default function PostSearch({ posts }) {
           },
         },
       }}
-      options={posts}
-      getOptionLabel={(post) => post.title}
+      options={kecamatans}
+      getOptionLabel={(kecamatan) => kecamatan.name}
       isOptionEqualToValue={(option, value) => option.id === value.id}
       renderInput={(params) => (
         <TextField
           {...params}
-          placeholder="Search post..."
+          placeholder="Cari kecamatan..."
           InputProps={{
             ...params.InputProps,
             startAdornment: (
