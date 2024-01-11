@@ -1,48 +1,44 @@
-import SvgColor from 'src/components/svg-color';
+import Iconify from 'src/components/iconify';
 
 // ----------------------------------------------------------------------
-
-const icon = (name) => (
-  <SvgColor src={`/assets/icons/navbar/${name}.svg`} sx={{ width: 1, height: 1 }} />
-);
 
 const navConfig = [
   {
     title: 'pengisian suara',
     path: '/pengisian-suara',
-    icon: icon('ic_cart'),
+    icon: <Iconify icon="radix-icons:pencil-2" />,
   },
   {
     title: 'data keseluruhan',
     path: '/',
-    icon: icon('ic_analytics'),
+    icon: <Iconify icon="tdesign:chart-analytics" />,
   },
 
   {
     title: 'data kecamatan',
     path: '/blog',
-    icon: icon('ic_blog'),
+    icon: <Iconify icon="teenyicons:building-outline" />,
   },
   {
     title: 'data kelurahan',
     path: '/blog',
-    icon: icon('ic_blog'),
+    icon: <Iconify icon="healthicons:village-outline" />,
   },
 
   {
     title: 'petugas',
     path: '/user',
-    icon: icon('ic_user'),
+    icon: <Iconify icon="solar:user-outline" />,
   },
   {
     title: 'login',
     path: '/login',
-    icon: icon('ic_lock'),
+    icon: <Iconify icon="material-symbols-light:login-sharp" />,
   },
   {
     title: 'Not found',
     path: '/404',
-    icon: icon('ic_disabled'),
+    icon: <Iconify icon="tabler:error-404-off" />,
   },
 ];
 
