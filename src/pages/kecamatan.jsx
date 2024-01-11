@@ -8,7 +8,7 @@ export default function KecamatanPage() {
   return (
     <>
       <Helmet>
-        <title> Kecamatan| Minimal UI </title>
+        <title> Kecamatan| Rekapitulasi Legislatif UI </title>
       </Helmet>
 
       <KecamatanView />
