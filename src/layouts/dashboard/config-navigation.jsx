@@ -16,17 +16,17 @@ const navConfig = [
 
   {
     title: 'data kecamatan',
-    path: '/blog',
+    path: '/kecamatan',
     icon: <Iconify icon="teenyicons:building-outline" />,
   },
   {
     title: 'data kelurahan',
-    path: '/blog',
+    path: '/kelurahan',
     icon: <Iconify icon="healthicons:village-outline" />,
   },
 
   {
-    title: 'petugas',
+    title: 'pengguna',
     path: '/user',
     icon: <Iconify icon="solar:user-outline" />,
   },
@@ -34,11 +34,6 @@ const navConfig = [
     title: 'login',
     path: '/login',
     icon: <Iconify icon="material-symbols-light:login-sharp" />,
-  },
-  {
-    title: 'Not found',
-    path: '/404',
-    icon: <Iconify icon="tabler:error-404-off" />,
   },
 ];
 

@@ -1,17 +1,17 @@
 import { Helmet } from 'react-helmet-async';
 
-import { BlogView } from 'src/sections/blog/view';
+import { KecamatanView } from 'src/sections/kecamatan/view';
 
 // ----------------------------------------------------------------------
 
-export default function BlogPage() {
+export default function KecamatanPage() {
   return (
     <>
       <Helmet>
-        <title> Blog | Minimal UI </title>
+        <title> Kecamatan| Minimal UI </title>
       </Helmet>
 
-      <BlogView />
+      <KecamatanView />
     </>
   );
 }

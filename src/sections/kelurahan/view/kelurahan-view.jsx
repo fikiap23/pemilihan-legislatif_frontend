@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import {
   Paper,
   Table,
+  Stack,
   TableRow,
   TableBody,
   TableCell,
@@ -14,15 +15,15 @@ import {
   TablePagination,
 } from '@mui/material';
 
-import Iconify from 'src/components/iconify';
+import { KECAMATAN } from 'src/_mock/kecamatan';
 
+import KecamatanSearch from '../kelurahan-search';
 import PieChart from '../../../layouts/dashboard/common/pie-chart';
 import BarChart from '../../../layouts/dashboard/common/bar-chart';
-import CardWidget from '../../../layouts/dashboard/common/card-widget';
 
 // ----------------------------------------------------------------------
 const rowsPerPageOptions = [10, 15, 30];
-export default function DashboardView() {
+export default function KelurahanView() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[0]);
 
@@ -37,11 +38,11 @@ export default function DashboardView() {
 
   const data = [
     {
-      kecamatan: 'Kecamatan 1',
+      Kelurahan: 'Kelurahan 1',
       votes: [500, 10, 450, 600, 200, 300, 150, 80, 200, 120, 40, 180, 240, 120, 120, 50, 80],
     },
     {
-      kecamatan: 'Kecamatan 2',
+      Kelurahan: 'Kelurahan 2',
       votes: [700, 15, 600, 450, 300, 150, 200, 100, 250, 180, 60, 250, 320, 160, 160, 80, 80],
     },
     // Add more data as needed
@@ -66,125 +67,143 @@ export default function DashboardView() {
     'https://goodkind-bucket04939-dev.s3.ap-southeast-1.amazonaws.com/public/assets/constant/partai/17/PPP.svg',
     'https://goodkind-bucket04939-dev.s3.ap-southeast-1.amazonaws.com/public/assets/constant/partai/24/Ummat.svg',
   ];
-  const kecamatanData = [
-    { id: 1, name: 'Kecamatan Cibiru', totalVotes: 100000, validVotes: 50000, invalidVotes: 50000 },
-    { id: 2, name: 'Kecamatan Babelan', totalVotes: 80000, validVotes: 40000, invalidVotes: 40000 },
+  const KelurahanData = [
+    {
+      id: 1,
+      name: 'Kelurahan Cibiru',
+      totalVotes: 100000,
+      validVotes: 50000,
+      invalidVotes: 50000,
+    },
+    {
+      id: 2,
+      name: 'Kelurahan Babelan',
+      totalVotes: 80000,
+      validVotes: 40000,
+      invalidVotes: 40000,
+    },
     {
       id: 3,
-      name: 'Kecamatan Rancaekek',
+      name: 'Kelurahan Rancaekek',
       totalVotes: 120000,
       validVotes: 60000,
       invalidVotes: 60000,
     },
     {
       id: 4,
-      name: 'Kecamatan Bojongsoang',
+      name: 'Kelurahan Bojongsoang',
       totalVotes: 95000,
       validVotes: 47500,
       invalidVotes: 47500,
     },
     {
       id: 5,
-      name: 'Kecamatan Majalaya',
+      name: 'Kelurahan Majalaya',
       totalVotes: 110000,
       validVotes: 55000,
       invalidVotes: 55000,
     },
     {
       id: 6,
-      name: 'Kecamatan Katapang',
+      name: 'Kelurahan Katapang',
       totalVotes: 75000,
       validVotes: 37500,
       invalidVotes: 37500,
     },
     {
       id: 7,
-      name: 'Kecamatan Dayeuhkolot',
+      name: 'Kelurahan Dayeuhkolot',
       totalVotes: 105000,
       validVotes: 52500,
       invalidVotes: 52500,
     },
     {
       id: 8,
-      name: 'Kecamatan Arcamanik',
+      name: 'Kelurahan Arcamanik',
       totalVotes: 88000,
       validVotes: 44000,
       invalidVotes: 44000,
     },
     {
       id: 9,
-      name: 'Kecamatan Cileunyi',
+      name: 'Kelurahan Cileunyi',
       totalVotes: 102000,
       validVotes: 51000,
       invalidVotes: 51000,
     },
     {
       id: 10,
-      name: 'Kecamatan Cicalengka',
+      name: 'Kelurahan Cicalengka',
       totalVotes: 90000,
       validVotes: 45000,
       invalidVotes: 45000,
     },
-    { id: 11, name: 'Kecamatan Pacet', totalVotes: 85000, validVotes: 42500, invalidVotes: 42500 },
+    {
+      id: 11,
+      name: 'Kelurahan Pacet',
+      totalVotes: 85000,
+      validVotes: 42500,
+      invalidVotes: 42500,
+    },
     {
       id: 12,
-      name: 'Kecamatan Sumedang Selatan',
+      name: 'Kelurahan Sumedang Selatan',
       totalVotes: 98000,
       validVotes: 49000,
       invalidVotes: 49000,
     },
     {
       id: 13,
-      name: 'Kecamatan Lembang',
+      name: 'Kelurahan Lembang',
       totalVotes: 115000,
       validVotes: 57500,
       invalidVotes: 57500,
     },
     {
       id: 14,
-      name: 'Kecamatan Padalarang',
+      name: 'Kelurahan Padalarang',
       totalVotes: 92000,
       validVotes: 46000,
       invalidVotes: 46000,
     },
     {
       id: 15,
-      name: 'Kecamatan Cikarang Barat',
+      name: 'Kelurahan Cikarang Barat',
       totalVotes: 100500,
       validVotes: 50250,
       invalidVotes: 50250,
     },
     {
       id: 16,
-      name: 'Kecamatan Tambun Utara',
+      name: 'Kelurahan Tambun Utara',
       totalVotes: 86000,
       validVotes: 43000,
       invalidVotes: 43000,
     },
     {
       id: 17,
-      name: 'Kecamatan Kuningan',
+      name: 'Kelurahan Kuningan',
       totalVotes: 94000,
       validVotes: 47000,
       invalidVotes: 47000,
     },
     {
       id: 18,
-      name: 'Kecamatan Karawang Timur',
+      name: 'Kelurahan Karawang Timur',
       totalVotes: 99000,
       validVotes: 49500,
       invalidVotes: 49500,
     },
     {
       id: 19,
-      name: 'Kecamatan Subang',
+      name: 'Kelurahan Subang',
       totalVotes: 107000,
       validVotes: 53500,
       invalidVotes: 53500,
     },
     {
       id: 20,
-      name: 'Kecamatan Purwakarta',
+      name: 'Kelurahan Purwakarta',
       totalVotes: 89000,
       validVotes: 44500,
       invalidVotes: 44500,
@@ -225,71 +244,33 @@ export default function DashboardView() {
       value: votes,
     })),
   };
+
+  console.log(KECAMATAN);
   return (
     <Container maxWidth="xl">
-      <Typography variant="h4" sx={{ mb: 5 }}>
-        Data Kabupaten Bandung
+      <Typography variant="h4" mb={5}>
+        Data Kecamatan A
       </Typography>
 
+      <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
+        <KecamatanSearch kecamatans={KECAMATAN} />
+      </Stack>
+
       <Grid container spacing={3}>
-        <Grid xs={12} sm={6} md={3}>
-          <CardWidget
-            title="Total Hak Suara"
-            total={714000}
-            color="success"
-            icon={
-              <Iconify
-                icon="fluent-emoji-high-contrast:ballot-box-with-ballot"
-                sx={{ width: 64, height: 64 }}
-              />
-            }
-          />
-        </Grid>
-
-        <Grid xs={12} sm={6} md={3}>
-          <CardWidget
-            title="Total Suara Sah"
-            total={1352831}
-            color="info"
-            icon={
-              <Iconify icon="emojione-v1:ballot-box-bold-check" sx={{ width: 64, height: 64 }} />
-            }
-          />
-        </Grid>
-
-        <Grid xs={12} sm={6} md={3}>
-          <CardWidget
-            title="Total Suara Tidak Sah"
-            total={1723315}
-            color="warning"
-            icon={<Iconify icon="fxemoji:ballottscriptx" sx={{ width: 64, height: 64 }} />}
-          />
-        </Grid>
-
-        <Grid xs={12} sm={6} md={3}>
-          <CardWidget
-            title="Total Kecamatan"
-            total={234}
-            color="error"
-            icon={<Iconify icon="teenyicons:building-outline" sx={{ width: 64, height: 64 }} />}
-          />
-        </Grid>
-
         <Grid xs={12} md={6} lg={8}>
           <TableContainer component={Paper}>
             <Table aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell>Kecamatan</TableCell>
+                  <TableCell>Kelurahan</TableCell>
                   <TableCell align="right">Total Suara</TableCell>
                   <TableCell align="right">Suara Sah</TableCell>
                   <TableCell align="right">Suara Tidak Sah</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {kecamatanData
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row) => (
+                {KelurahanData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(
+                  (row) => (
                     <TableRow
                       key={row.name}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -301,13 +282,14 @@ export default function DashboardView() {
                       <TableCell align="right">{row.validVotes}</TableCell>
                       <TableCell align="right">{row.invalidVotes}</TableCell>
                     </TableRow>
-                  ))}
+                  )
+                )}
               </TableBody>
             </Table>
             <TablePagination
               rowsPerPageOptions={rowsPerPageOptions}
               component="div"
-              count={kecamatanData.length}
+              count={KelurahanData.length}
               rowsPerPage={rowsPerPage}
               page={page}
               onPageChange={handleChangePage}
@@ -329,7 +311,7 @@ export default function DashboardView() {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell>Kecamatan</TableCell>
+                  <TableCell>Kelurahan</TableCell>
                   {parties.map((partyImage, index) => (
                     <TableCell key={index}>
                       <img src={partyImage} alt={`Party ${index + 1}`} style={{ width: '20px' }} />
@@ -340,7 +322,7 @@ export default function DashboardView() {
               <TableBody>
                 {data.map((row, index) => (
                   <TableRow key={index}>
-                    <TableCell>{row.kecamatan}</TableCell>
+                    <TableCell>{row.Kelurahan}</TableCell>
                     {row.votes.map((vote, voteIndex) => (
                       <TableCell key={voteIndex}>{vote}</TableCell>
                     ))}
