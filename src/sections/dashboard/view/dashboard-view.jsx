@@ -14,13 +14,15 @@ import {
   TablePagination,
 } from '@mui/material';
 
-import AppCurrentVisits from '../app-current-visits';
-import AppWidgetSummary from '../app-widget-summary';
-import AppConversionRates from '../app-conversion-rates';
+import Iconify from 'src/components/iconify';
+
+import PieChart from '../pie-chart';
+import BarChart from '../bar-chart';
+import CardWidget from '../card-widget';
 
 // ----------------------------------------------------------------------
 const rowsPerPageOptions = [10, 15, 30];
-export default function AppView() {
+export default function DashboardView() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(rowsPerPageOptions[0]);
 
@@ -231,38 +233,45 @@ export default function AppView() {
 
       <Grid container spacing={3}>
         <Grid xs={12} sm={6} md={3}>
-          <AppWidgetSummary
-            title="Total Suara"
+          <CardWidget
+            title="Total Hak Suara"
             total={714000}
             color="success"
-            icon={<img alt="icon" src="/assets/icons/glass/ic_glass_bag.png" />}
+            icon={
+              <Iconify
+                icon="fluent-emoji-high-contrast:ballot-box-with-ballot"
+                sx={{ width: 64, height: 64 }}
+              />
+            }
           />
         </Grid>
 
         <Grid xs={12} sm={6} md={3}>
-          <AppWidgetSummary
-            title="Suara Sah"
+          <CardWidget
+            title="Total Suara Sah"
             total={1352831}
             color="info"
-            icon={<img alt="icon" src="/assets/icons/glass/ic_glass_users.png" />}
+            icon={
+              <Iconify icon="emojione-v1:ballot-box-bold-check" sx={{ width: 64, height: 64 }} />
+            }
           />
         </Grid>
 
         <Grid xs={12} sm={6} md={3}>
-          <AppWidgetSummary
-            title="Suara Tidak Sah"
+          <CardWidget
+            title="Total Suara Tidak Sah"
             total={1723315}
             color="warning"
-            icon={<img alt="icon" src="/assets/icons/glass/ic_glass_buy.png" />}
+            icon={<Iconify icon="fxemoji:ballottscriptx" sx={{ width: 64, height: 64 }} />}
           />
         </Grid>
 
         <Grid xs={12} sm={6} md={3}>
-          <AppWidgetSummary
-            title="Kecamatan"
+          <CardWidget
+            title="Total Kecamatan"
             total={234}
             color="error"
-            icon={<img alt="icon" src="/assets/icons/glass/ic_glass_message.png" />}
+            icon={<Iconify icon="teenyicons:building-outline" sx={{ width: 64, height: 64 }} />}
           />
         </Grid>
 
@@ -309,11 +318,11 @@ export default function AppView() {
         </Grid>
 
         <Grid xs={12} md={6} lg={4}>
-          <AppCurrentVisits title="Perolehan Suara" chart={partyChartData} />
+          <PieChart title="Perolehan Suara" chart={partyChartData} />
         </Grid>
 
         <Grid xs={12} md={12} lg={12}>
-          <AppConversionRates title="Perolehan Suara Per Partai" chart={partyChartData} />
+          <BarChart title="Perolehan Suara Per Partai" chart={partyChartData} />
         </Grid>
 
         <Grid container item xs={12} md={12} lg={12}>

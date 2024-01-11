@@ -9,7 +9,7 @@ import { fNumber } from 'src/utils/format-number';
 import Chart, { useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
-export default function AppConversionRates({ title, subheader, chart, ...other }) {
+export default function BarChart({ title, subheader, chart, ...other }) {
   const { colors, series, options } = chart;
 
   // Extract chart series and categories
@@ -63,7 +63,7 @@ export default function AppConversionRates({ title, subheader, chart, ...other }
   );
 }
 
-AppConversionRates.propTypes = {
+BarChart.propTypes = {
   chart: PropTypes.object,
   subheader: PropTypes.string,
   title: PropTypes.string,
