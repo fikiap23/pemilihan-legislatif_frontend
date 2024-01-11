@@ -9,11 +9,17 @@ import { fNumber } from 'src/utils/format-number';
 import Chart, { useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
-
 export default function AppConversionRates({ title, subheader, chart, ...other }) {
   const { colors, series, options } = chart;
 
-  const chartSeries = series.map((i) => i.value);
+  // Extract chart series and categories
+  const chartData = series.map((i) => ({ label: i.label, value: i.value }));
+
+  // Sort chart data based on values in descending order
+  chartData.sort((a, b) => b.value - a.value);
+
+  const chartSeries = chartData.map((item) => item.value);
+  const chartCategories = chartData.map((item) => item.label);
 
   const chartOptions = useChart({
     colors,
@@ -34,7 +40,7 @@ export default function AppConversionRates({ title, subheader, chart, ...other }
       },
     },
     xaxis: {
-      categories: series.map((i) => i.label),
+      categories: chartCategories,
     },
     ...options,
   });
@@ -50,7 +56,7 @@ export default function AppConversionRates({ title, subheader, chart, ...other }
           series={[{ data: chartSeries }]}
           options={chartOptions}
           width="100%"
-          height={364}
+          height={864}
         />
       </Box>
     </Card>

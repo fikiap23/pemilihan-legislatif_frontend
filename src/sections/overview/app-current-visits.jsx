@@ -10,19 +10,18 @@ import Chart, { useChart } from 'src/components/chart';
 
 // ----------------------------------------------------------------------
 
-const CHART_HEIGHT = 400;
-
-const LEGEND_HEIGHT = 72;
+const CHART_HEIGHT = 450;
 
 const StyledChart = styled(Chart)(({ theme }) => ({
   height: CHART_HEIGHT,
   '& .apexcharts-canvas, .apexcharts-inner, svg, foreignObject': {
-    height: `100% !important`,
+    height: '100% !important',
   },
   '& .apexcharts-legend': {
-    height: LEGEND_HEIGHT,
     borderTop: `dashed 1px ${theme.palette.divider}`,
-    top: `calc(${CHART_HEIGHT - LEGEND_HEIGHT}px) !important`,
+    position: 'relative', // Set position to relative
+    bottom: 0, // Position at the bottom of the chart
+    height: 'auto', // Let the height adjust dynamically
   },
 }));
 

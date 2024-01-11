@@ -8,24 +8,31 @@ const icon = (name) => (
 
 const navConfig = [
   {
-    title: 'dashboard',
-    path: '/',
-    icon: icon('ic_analytics'),
-  },
-  {
-    title: 'user',
-    path: '/user',
-    icon: icon('ic_user'),
-  },
-  {
-    title: 'product',
-    path: '/products',
+    title: 'pengisian suara',
+    path: '/pengisian-suara',
     icon: icon('ic_cart'),
   },
   {
-    title: 'blog',
+    title: 'data keseluruhan',
+    path: '/',
+    icon: icon('ic_analytics'),
+  },
+
+  {
+    title: 'data kecamatan',
     path: '/blog',
     icon: icon('ic_blog'),
+  },
+  {
+    title: 'data kelurahan',
+    path: '/blog',
+    icon: icon('ic_blog'),
+  },
+
+  {
+    title: 'petugas',
+    path: '/user',
+    icon: icon('ic_user'),
   },
   {
     title: 'login',
